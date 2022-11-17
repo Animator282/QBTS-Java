@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.homeController">
    <children>
       <Separator layoutY="18.0" prefHeight="9.0" prefWidth="600.0" />
@@ -39,5 +38,11 @@
             </HBox>
          </children>
       </Pane>
+      <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="14.0" layoutY="50.0" prefHeight="190.0" prefWidth="200.0" text="QBTS" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="80.0" text="The new WRTS" />
    </children>
 </AnchorPane>
