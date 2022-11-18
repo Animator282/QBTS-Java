@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.newListController">
    <children>
       <ScrollPane hbarPolicy="NEVER" layoutY="24.0" prefHeight="376.0" prefWidth="600.0" vbarPolicy="ALWAYS">
@@ -27,8 +26,8 @@
       </ScrollPane>
       <Button fx:id="addWord" mnemonicParsing="false" onAction="#addNewWord" text="Add" />
       <Button fx:id="returnToHome" layoutX="548.0" mnemonicParsing="false" onAction="#returnHomePressed" text="Return" />
-      <TextField fx:id="leftField" layoutX="46.0" promptText="Left" />
-      <TextField fx:id="rightField" layoutX="207.0" promptText="Right" />
+      <TextField fx:id="leftField" layoutX="46.0" onKeyPressed="#enterKeyPressed" promptText="Left" />
+      <TextField fx:id="rightField" layoutX="207.0" onKeyPressed="#enterKeyPressed" promptText="Right" />
       <Label layoutX="197.0" layoutY="4.0" text="=" />
       <Button fx:id="deleteWord" layoutX="365.0" mnemonicParsing="false" onAction="#deleteWordPressed" text="Delete" />
       <Button fx:id="saveList" layoutX="494.0" mnemonicParsing="false" onAction="#saveListPressed" text="Save" />
