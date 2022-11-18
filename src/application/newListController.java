@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 
 import javafx.event.ActionEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
+import javafx.scene.*;
 
 public class newListController {
 	
@@ -58,6 +60,9 @@ public class newListController {
 		
 		Label addLabel1 = new Label((elementArrays + 1) + ": " + leftWord);
 		Label addLabel2 = new Label((elementArrays + 1) + ": " + rightWord);
+		addLabel1.setId(Integer.toString(elementArrays));
+		addLabel2.setId(Integer.toString(elementArrays));
+		
 		
 		//Add label to GUI
 		vboxL.getChildren().add(addLabel1);
@@ -67,7 +72,30 @@ public class newListController {
 		elementArrays++;
 		
 	}
-	public void deleteWordPressed(ActionEvent event) {}
+	public void deleteWordPressed(ActionEvent event) {
+		//Get stage
+		Stage thisStage = (Stage) vboxL.getScene().getWindow();
+		
+		if (elementArrays > 0) {
+			//Remove String
+			leftWords.remove(elementArrays - 1);
+			rightWords.remove(elementArrays - 1);
+			System.out.println(vboxL.getChildren());
+			System.out.println(vboxR.getChildren());
+			
+			//Remove Node
+			Node n1 = thisStage.getScene().lookup("#" + Integer.toString(elementArrays - 1));
+			
+			vboxL.getChildren().remove(n1);
+			
+			Node n2 = thisStage.getScene().lookup("#" + Integer.toString(elementArrays - 1));
+			
+			vboxR.getChildren().remove(n2);
+			
+			//Decrease array count
+			elementArrays--;
+		}
+	}
 	public void saveListPressed(ActionEvent event) {}
 	public void returnHomePressed(ActionEvent event) {}
 
