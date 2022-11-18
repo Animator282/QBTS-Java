@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.newListController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutY="24.0" prefHeight="376.0" prefWidth="600.0" vbarPolicy="ALWAYS">
+         <content>
+            <AnchorPane prefHeight="400.0" prefWidth="585.0">
+               <children>
+                  <HBox fx:id="scrollBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                     <children>
+                        <VBox fx:id="vboxL" prefHeight="400.0" prefWidth="292.5" />
+                        <VBox fx:id="vboxR" prefHeight="400.0" prefWidth="292.5" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <Button fx:id="addWord" mnemonicParsing="false" onAction="#addNewWord" text="Add" />
+      <Button fx:id="returnToHome" layoutX="548.0" mnemonicParsing="false" onAction="#returnHomePressed" text="Return" />
+      <TextField fx:id="leftField" layoutX="46.0" promptText="Left" />
+      <TextField fx:id="rightField" layoutX="207.0" promptText="Right" />
+      <Label layoutX="197.0" layoutY="4.0" text="=" />
+      <Button fx:id="deleteWord" layoutX="365.0" mnemonicParsing="false" onAction="#deleteWordPressed" text="Delete" />
+      <Button fx:id="saveList" layoutX="494.0" mnemonicParsing="false" onAction="#saveListPressed" text="Save" />
+   </children>
+</AnchorPane>

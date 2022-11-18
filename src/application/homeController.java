@@ -7,13 +7,38 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
+
+
 public class homeController {
+	
+	
+	//ONTHOUD, ACHTER ELK FXML DING = "@FXML" ANDERS DOET IE NIET
+	
+	Main main = new Main();
+	
+	
 	@FXML
 	private Button button;
 	
+	@FXML
+	private Label welcomeDisplay;
+	
+	
+	
+	@FXML
 	public void initialize() {
-        // TODO
+		welcomeDisplay.setText("Welcome!");
     }
+	
+
+
+	@FXML
+	private void makeNewList(ActionEvent event) {
+		Stage thisStage = (Stage) button.getScene().getWindow();
+		main.changeScene(thisStage);
+		
+	}
 	
 	@FXML
     private void quitButtonPressed(ActionEvent event) {
