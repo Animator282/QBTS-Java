@@ -11,6 +11,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.*;
 import javafx.scene.*;
 
+import java.io.*;
+
 public class newListController {
 	
 	//Initializing the Main method
@@ -26,6 +28,7 @@ public class newListController {
 	@FXML private Button returnToHome;
 	@FXML public TextField leftField;
 	@FXML public TextField rightField;
+	@FXML public TextField fileName;
 	
 	//Arrays for storing Strings
 	public ArrayList<String> leftWords = new ArrayList<String>();
@@ -33,6 +36,7 @@ public class newListController {
 	
 	int elementArrays = 0;
 	
+	File storedSave;
 	
 	public void enterKeyPressed(KeyEvent e) {
 		if(e.getCode() == KeyCode.ENTER)
@@ -96,7 +100,79 @@ public class newListController {
 			elementArrays--;
 		}
 	}
-	public void saveListPressed(ActionEvent event) {}
-	public void returnHomePressed(ActionEvent event) {}
+	
+	
+	
+	public void saveListPressed(ActionEvent event) {
+		//Get file name from textfield
+		String getFileName = fileName.getText();
+		
+		try {
+		      File storedSave = new File(System.getProperty("user.dir") + "/saves/" + getFileName + ".txt");
+		      if (storedSave.createNewFile()) {
+		        System.out.println("File created: " + getFileName);
+		        
+		        //Make filewriter for file
+		        FileWriter saveFileWriter = new FileWriter(System.getProperty("user.dir") + "/saves/" + getFileName + ".txt");
+		        
+		        for (int sizeArrays = 0;sizeArrays < elementArrays;sizeArrays++) {
+		        	try {
+		        		  //Add arrays to savefile
+		        		  System.out.println("Array: " + sizeArrays);
+		        	      saveFileWriter.write(leftWords.get(sizeArrays) + "\n");
+		        	      saveFileWriter.write(rightWords.get(sizeArrays) + "\n");
+		        	      System.out.println("Successfully wrote to the file.");
+		        	    } catch (Exception e) {
+		        	      System.out.println("An error occurred.");
+		        	      e.printStackTrace();
+		        	    }
+		     
+				}
+		        
+		        saveFileWriter.close();
+		        
+		      } else {
+		        System.out.println("File already exists.");
+		        //Make filewriter to overwrite
+		        FileWriter overWriteFile = new FileWriter(System.getProperty("user.dir") + "/saves/" + getFileName + ".txt");
+		        
+		        for (int sizeArraysOverWrite = 0;sizeArraysOverWrite < elementArrays;sizeArraysOverWrite++) {
+		        	try {
+		        		  //Add arrays to overwritefile
+		        		  System.out.println("Array: " + sizeArraysOverWrite);
+		        	      overWriteFile.write(leftWords.get(sizeArraysOverWrite) + "\n");
+		        	      overWriteFile.write(rightWords.get(sizeArraysOverWrite) + "\n");
+		        	      System.out.println("Successfully wrote to the file.");
+		        	    } catch (Exception e) {
+		        	      System.out.println("An error occurred.");
+		        	      e.printStackTrace();
+		        	    }
+		     
+				}
+		        
+		        overWriteFile.close();
+		        
+		        
+		        
+		      }
+		    } catch (Exception e) {
+		      System.out.println("An error occurred.");
+		      e.printStackTrace();
+		    }
+		
+	
+		
+	
+	
+	}
+	
+	
+	
+	public void returnHomePressed(ActionEvent event) {
+		//Get stage
+		Stage thisStage = (Stage) vboxL.getScene().getWindow();
+		//Change scene to home
+		main.changeScene(thisStage, "home.fxml");
+	}
 
 }

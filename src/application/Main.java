@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.io.IOException;
 
 import java.util.HashMap;
@@ -19,6 +20,9 @@ public class Main extends Application {
 	
     @Override
     public void start(Stage stage) throws Exception {
+    	
+		new File(System.getProperty("user.dir") + "/saves/").mkdirs();
+    	
     	homeController homeControl = new homeController();
     	
     	stage.setTitle("QBTS");
@@ -32,15 +36,15 @@ public class Main extends Application {
        
     }
     
-    public void changeScene(Stage stage) {
+    public void changeScene(Stage stage, String FXMLFile) {
     	Parent root = null;
 		try {
-			root = FXMLLoader.load(getClass().getResource("newList.fxml"));
+			root = FXMLLoader.load(getClass().getResource(FXMLFile));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-    	Scene scene2 = new Scene(root);
-    	stage.setScene(scene2);
+    	Scene sceneChange = new Scene(root);
+    	stage.setScene(sceneChange);
     }
     
     

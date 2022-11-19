@@ -31,5 +31,6 @@
       <Label layoutX="197.0" layoutY="4.0" text="=" />
       <Button fx:id="deleteWord" layoutX="365.0" mnemonicParsing="false" onAction="#deleteWordPressed" text="Delete" />
       <Button fx:id="saveList" layoutX="494.0" mnemonicParsing="false" onAction="#saveListPressed" text="Save" />
+      <TextField fx:id="fileName" layoutX="433.0" prefWidth="50.0" promptText="Name" />
    </children>
 </AnchorPane>

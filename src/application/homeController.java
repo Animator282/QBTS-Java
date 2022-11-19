@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 public class homeController {
 	
+	public Scene scene, scene2;
 	
 	//ONTHOUD, ACHTER ELK FXML DING = "@FXML" ANDERS DOET IE NIET
 	
@@ -36,7 +37,7 @@ public class homeController {
 	@FXML
 	private void makeNewList(ActionEvent event) {
 		Stage thisStage = (Stage) button.getScene().getWindow();
-		main.changeScene(thisStage);
+		main.changeScene(thisStage, "newList.fxml");
 		
 	}
 	
