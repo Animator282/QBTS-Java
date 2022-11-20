@@ -18,7 +18,6 @@ public class Main extends Application {
 	
 	public Scene scene, scene2;
 	
-	public Parent root;
 	
     @Override
     public void start(Stage stage) throws Exception {
@@ -39,6 +38,7 @@ public class Main extends Application {
     }
     
     public void changeScene(Stage stage, String FXMLFile, String titleName) {
+    	Parent root = null;
 		try {
 			root = FXMLLoader.load(getClass().getResource(FXMLFile));
 		} catch (IOException e) {
@@ -47,7 +47,7 @@ public class Main extends Application {
     	Scene sceneChange = new Scene(root);
     	stage.setScene(sceneChange);
     	stage.setTitle(titleName);
-    }
+    	}
     
     
     

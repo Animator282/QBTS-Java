@@ -45,7 +45,7 @@ public class newListController {
 	
 
 	
-	//Check if the enter key is pressed to execute the addNewWord method
+	
 	public void enterKeyPressed(KeyEvent e) {
 		if(e.getCode() == KeyCode.ENTER)
 	    {
@@ -53,7 +53,6 @@ public class newListController {
 	    }
 	}
 	
-	//Add a new word to the list
 	public void addNewWord(ActionEvent event) {
 		String leftWord = null;
 		String rightWord = null;
@@ -111,7 +110,7 @@ public class newListController {
 	}
 	
 	
-	//Save the list made
+	
 	public void saveListPressed(ActionEvent event) {
 		//Get file name from textfield
 		String getFileName = fileName.getText();
@@ -177,7 +176,7 @@ public class newListController {
 	}
 	
 	
-	//Return to the home page
+	
 	public void returnHomePressed(ActionEvent event) {
 		//Get stage
 		Stage thisStage = (Stage) vboxL.getScene().getWindow();

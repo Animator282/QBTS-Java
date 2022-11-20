@@ -20,7 +20,7 @@
             <Font size="11.0" />
          </font>
       </Button>
-      <ScrollPane hbarPolicy="NEVER" layoutX="400.0" layoutY="50.0" prefHeight="326.0" prefWidth="200.0" vbarPolicy="ALWAYS" vmax="100.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="400.0" layoutY="50.0" prefHeight="350.0" prefWidth="200.0" vbarPolicy="ALWAYS" vmax="100.0">
          <content>
             <VBox fx:id="scrollBox" prefHeight="1000.0" prefWidth="185.0" />
          </content>
@@ -42,7 +42,7 @@
       </Label>
       <Label layoutX="16.0" layoutY="80.0" text="The new WRTS" />
       <Label fx:id="welcomeDisplay" alignment="CENTER" layoutX="256.0" layoutY="1.0" prefHeight="17.0" prefWidth="88.0" textAlignment="CENTER" />
-      <ChoiceBox fx:id="practiceListPicker" layoutX="159.0" layoutY="21.0" prefWidth="150.0" />
-      <Button fx:id="practiceButton" layoutX="309.0" layoutY="21.0" mnemonicParsing="false" onAction="#onPracticePressed" text="Practice" />
+      <ChoiceBox fx:id="practiceListPicker" layoutX="160.0" layoutY="50.0" prefWidth="150.0" />
+      <Button fx:id="practiceButton" layoutX="310.0" layoutY="50.0" mnemonicParsing="false" onAction="#onPracticePressed" text="Practice" />
    </children>
 </AnchorPane>

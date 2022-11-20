@@ -23,8 +23,6 @@ public class homeController {
 	//ONTHOUD, ACHTER ELK FXML DING = "@FXML" ANDERS DOET IE NIET
 	
 	Main main = new Main();
-	practiceListController pLC = new practiceListController();
-	
 	
 	String[] listNames;
 	
@@ -37,10 +35,7 @@ public class homeController {
 	
 	public HashMap<String, String> nameAndPath = new HashMap<String, String>();
 	
-	public String selectedChoice;
 	
-	
-	//Initialization of the scene
 	@FXML
 	public void initialize() {
 		welcomeDisplay.setText("Welcome!");
@@ -55,19 +50,12 @@ public class homeController {
     }
 	
 	
-	
-	//Practice button
-	public void onPracticePressed(ActionEvent event) {
-		//Check the list for the selection
-		selectedChoice = practiceListPicker.getSelectionModel().getSelectedItem();
+	public void onPracticePressed() {
+		String selectedChoice = practiceListPicker.getSelectionModel().getSelectedItem();
 		System.out.println(selectedChoice);
-		Stage thisStage = (Stage) newList.getScene().getWindow();
-		main.changeScene(thisStage, "practiceList.fxml", "Practice");
-		pLC.setList(selectedChoice, nameAndPath);
-		
 	}
 	
-	//Check on startup for new lists
+	
 	public void checkLists() {
 		File saveFolder = new File(System.getProperty("user.dir") + "/saves");
 		listNames = saveFolder.list();
@@ -84,9 +72,7 @@ public class homeController {
             System.out.println(nameAndPath);
         }
 	}
-	
-	
-	//Make a new list button
+
 	@FXML
 	private void makeNewList(ActionEvent event) {
 		Stage thisStage = (Stage) button.getScene().getWindow();
@@ -94,8 +80,6 @@ public class homeController {
 		
 	}
 	
-	
-	//Quit the app
 	@FXML
     private void quitButtonPressed(ActionEvent event) {
 		// get a handle to the stage
