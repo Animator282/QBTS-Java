@@ -57,14 +57,20 @@ public class homeController {
 	
 	
 	//Practice button
+	@FXML
 	public void onPracticePressed(ActionEvent event) {
 		//Check the list for the selection
 		selectedChoice = practiceListPicker.getSelectionModel().getSelectedItem();
 		System.out.println(selectedChoice);
 		Stage thisStage = (Stage) newList.getScene().getWindow();
-		main.changeScene(thisStage, "practiceList.fxml", "Practice");
 		pLC.setList(selectedChoice, nameAndPath);
-		
+		main.changeScene(thisStage, "practiceList.fxml", "Practice");
+		System.out.println("LETTERLIJK SELECTEDCJHOICE: " + selectedChoice);
+		pLC.setDisplayName(selectedChoice);
+	}
+	
+	public String getSelectedChoice() {
+		return selectedChoice;
 	}
 	
 	//Check on startup for new lists

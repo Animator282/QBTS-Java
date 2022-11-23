@@ -43,7 +43,9 @@ public class newListController {
 	
 	File storedSave;
 	
-
+	public void initialize() {
+		
+	}
 	
 	//Check if the enter key is pressed to execute the addNewWord method
 	public void enterKeyPressed(KeyEvent e) {

@@ -15,7 +15,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <Button fx:id="returnButton" layoutX="547.0" layoutY="-2.0" mnemonicParsing="false" onAction="#onReturnButtonPressed" text="Return" textAlignment="CENTER" />
-                  <Label fx:id="listDisplay" layoutY="2.0" prefHeight="17.0" prefWidth="84.0" text="Practicing: " />
+                  <Label fx:id="listDisplay" layoutY="2.0" maxHeight="152.0" maxWidth="150.0" prefHeight="20.0" prefWidth="150.0" />
                   <ProgressBar fx:id="progressList" layoutX="165.0" layoutY="3.0" prefWidth="200.0" progress="1.0" />
                   <Label fx:id="questionProgress" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="368.0" layoutY="3.0" prefHeight="17.0" prefWidth="45.0" text="0/0" textAlignment="CENTER" />
                </children>
