@@ -6,6 +6,8 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.practiceListController">
@@ -17,7 +19,7 @@
                   <Button fx:id="returnButton" layoutX="547.0" layoutY="-2.0" mnemonicParsing="false" onAction="#onReturnButtonPressed" text="Return" textAlignment="CENTER" />
                   <Label fx:id="listDisplay" layoutY="2.0" maxHeight="152.0" maxWidth="150.0" prefHeight="20.0" prefWidth="150.0" />
                   <ProgressBar fx:id="progressList" layoutX="165.0" layoutY="3.0" prefWidth="200.0" progress="1.0" />
-                  <Label fx:id="questionProgress" alignment="TOP_CENTER" contentDisplay="TOP" layoutX="368.0" layoutY="3.0" prefHeight="17.0" prefWidth="45.0" text="0/0" textAlignment="CENTER" />
+                  <Label fx:id="questionProgress" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="368.0" layoutY="3.0" prefHeight="17.0" prefWidth="167.0" text="0/0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
@@ -36,11 +38,23 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextField fx:id="answerTextField" layoutY="6.0" prefHeight="25.0" prefWidth="299.0" promptText="Answer" />
+                  <TextField fx:id="answerTextField" layoutY="6.0" onKeyPressed="#onCheckEntered" prefHeight="25.0" prefWidth="299.0" promptText="Answer" />
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
       <Button fx:id="checkButton" layoutX="276.0" layoutY="249.0" mnemonicParsing="false" onAction="#onCheckPressed" text="Check" />
+      <Pane fx:id="showWrong" layoutX="225.0" layoutY="118.0" prefHeight="165.0" prefWidth="150.0">
+         <children>
+            <Circle fill="#e42727" layoutX="76.0" layoutY="82.0" radius="96.0" scaleX="1.6" scaleY="1.6" stroke="BLACK" strokeType="INSIDE" />
+            <Label prefHeight="83.0" prefWidth="150.0" text="WRONG" textAlignment="CENTER">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Label fx:id="showAnswer" alignment="CENTER" layoutX="8.0" layoutY="82.0" prefHeight="69.0" prefWidth="134.0" text="[ANSWER]" textAlignment="CENTER" />
+            <Button fx:id="continueButton" layoutX="37.0" layoutY="139.0" mnemonicParsing="false" onAction="#onContinuePressed" text="Continue" textAlignment="CENTER" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

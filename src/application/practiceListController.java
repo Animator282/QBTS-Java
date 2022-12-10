@@ -5,26 +5,36 @@ import java.io.*;
 
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import javafx.fxml.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
+import javafx.scene.input.*;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.*;
 import javafx.collections.*;
+import javafx.geometry.*;
+import javafx.scene.shape.*;
 
 public class practiceListController {
 	
 	Main main = new Main();
 	
+	
 	@FXML private Button returnButton;
 	@FXML private Button checkButton;
+	@FXML private Button continueButton;
 	@FXML public Label listDisplay;
 	@FXML private Label questionProgress;
 	@FXML private Label questionLabel;
+	@FXML private Label showAnswer;
 	@FXML private TextField answerTextField;
 	@FXML private ProgressBar progressList;
+	@FXML private Pane showWrong;
+	
 	
 	public static int currentQuestion = 0;
 	public static int questionsCorrect = 0;
@@ -47,7 +57,8 @@ public class practiceListController {
 		listDisplay.setText("Practicing: " + listToDisplay);
 		questionLabel.setText("Press Start");
 		checkButton.setText("Start");
-		
+		showWrong.setVisible(false);
+		progressList.setProgress(0);
 		
 	}
 	
@@ -134,6 +145,7 @@ public class practiceListController {
 		currentQuestion = 0;
 		questionsCorrect = 0;
 		currentQuestionDouble = 0;
+		questionAndAnswer.clear();
 		
 		//Get stage
 		Stage thisStage = (Stage) returnButton.getScene().getWindow();
@@ -146,12 +158,13 @@ public class practiceListController {
 	
 	public void onCheckPressed(ActionEvent event) {
 		//Make question system here
+		
 		int sizeList = questionAndAnswer.size();
 		
 		
 		//Shuffle
 		if (shuffled == false) {
-			questionProgress.setText(questionsCorrect + "/" + sizeList);
+			questionProgress.setText(questionsCorrect + "/" + sizeList + " Correct");
 		
 		
 		
@@ -172,7 +185,6 @@ public class practiceListController {
 			shuffled = true;
 		} else {
 			progressList.setProgress(0);
-			questionProgress.setText(questionsCorrect + "/" + sizeList);
 			
 			
 			
@@ -196,6 +208,9 @@ public class practiceListController {
 				System.out.println("WRONG");
 				System.out.println((currentQuestionDouble + 1.00) / sizeList);
 				progressList.setProgress((currentQuestionDouble + 1.00) / sizeList);
+				showWrong.setVisible(true);
+				showAnswer.setText("Answer: " + answer);
+				
 			}
 			
 			if (currentQuestion < sizeList - 1) {
@@ -205,20 +220,31 @@ public class practiceListController {
 				//Finished
 			}
 			
+			questionProgress.setText(questionsCorrect + "/" + sizeList + " Correct");
 			questionLabel.setText(questionsOnly.get(currentQuestion));
+			
+			answerTextField.setText("");
 		}
 		
+	
+	}
+	
+	
+	public void onCheckEntered(KeyEvent check) {
+		if(check.getCode() == KeyCode.ENTER && showWrong.isVisible() == false)
+	    {
+	        onCheckPressed(null);
+	    }
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		else if(check.getCode() == KeyCode.ENTER && showWrong.isVisible() == true)
+	    {
+	        onContinuePressed(null);
+	    }
+	}
+	
+	
+	public void onContinuePressed(ActionEvent event) {
+		showWrong.setVisible(false);
 	}
 	
 }

@@ -62,7 +62,7 @@ public class homeController {
 		//Check the list for the selection
 		selectedChoice = practiceListPicker.getSelectionModel().getSelectedItem();
 		System.out.println(selectedChoice);
-		Stage thisStage = (Stage) newList.getScene().getWindow();
+		Stage thisStage = (Stage) practiceButton.getScene().getWindow();
 		pLC.setList(selectedChoice, nameAndPath);
 		main.changeScene(thisStage, "practiceList.fxml", "Practice");
 		System.out.println("LETTERLIJK SELECTEDCJHOICE: " + selectedChoice);
